@@ -1,0 +1,12 @@
+php app/console generate:bundle
+php app/console generate:bundle --namespace=My/FrontendBundle --dir=src --no-interaction
+php app/console generate:doctrine:entity
+php app/console generate:doctrine:entities My
+php app/console doctrine:generate:crud
+php app/console doctrine:schema:update --force
+php app/console doctrine:fixtures:load
+php app/console generate:bundle --namespace=My/UserBundle --dir=src --no-interaction
+php app/console fos:user:create admin admin@example.com password --super-admin
+php app/console fos:user:promote admin --super
+
+php app/console sonata:easy-extends:generate SonataUserBundle --dest=src
