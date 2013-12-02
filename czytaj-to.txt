@@ -1,0 +1,7 @@
+Przykład pochodzi z książki
+Włodzimierza Gajdy pt. "Symfony 2 od podstaw"
+wydanej przez wydawnictwo Helion w 2012 roku.
+
+
+Strona książki w księgarni Helion:      http://helion.pl/ksiazki/symfo2.htm
+Strona domowa książki:                  http://symfony2.gajdaw.pl
