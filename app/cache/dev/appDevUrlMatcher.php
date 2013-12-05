@@ -332,6 +332,44 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CoreController::searchAction',  '_route' => 'sonata_admin_search',);
             }
 
+            if (0 === strpos($pathinfo, '/admin/acme/demo/post')) {
+                // admin_acme_demo_post_list
+                if ($pathinfo === '/admin/acme/demo/post/list') {
+                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction',  '_sonata_admin' => 'sonata.admin.post',  '_sonata_name' => 'admin_acme_demo_post_list',  '_route' => 'admin_acme_demo_post_list',);
+                }
+
+                // admin_acme_demo_post_create
+                if ($pathinfo === '/admin/acme/demo/post/create') {
+                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction',  '_sonata_admin' => 'sonata.admin.post',  '_sonata_name' => 'admin_acme_demo_post_create',  '_route' => 'admin_acme_demo_post_create',);
+                }
+
+                // admin_acme_demo_post_batch
+                if ($pathinfo === '/admin/acme/demo/post/batch') {
+                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction',  '_sonata_admin' => 'sonata.admin.post',  '_sonata_name' => 'admin_acme_demo_post_batch',  '_route' => 'admin_acme_demo_post_batch',);
+                }
+
+                // admin_acme_demo_post_edit
+                if (preg_match('#^/admin/acme/demo/post/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_acme_demo_post_edit')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction',  '_sonata_admin' => 'sonata.admin.post',  '_sonata_name' => 'admin_acme_demo_post_edit',));
+                }
+
+                // admin_acme_demo_post_delete
+                if (preg_match('#^/admin/acme/demo/post/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_acme_demo_post_delete')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction',  '_sonata_admin' => 'sonata.admin.post',  '_sonata_name' => 'admin_acme_demo_post_delete',));
+                }
+
+                // admin_acme_demo_post_show
+                if (preg_match('#^/admin/acme/demo/post/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_acme_demo_post_show')), array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction',  '_sonata_admin' => 'sonata.admin.post',  '_sonata_name' => 'admin_acme_demo_post_show',));
+                }
+
+                // admin_acme_demo_post_export
+                if ($pathinfo === '/admin/acme/demo/post/export') {
+                    return array (  '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction',  '_sonata_admin' => 'sonata.admin.post',  '_sonata_name' => 'admin_acme_demo_post_export',  '_route' => 'admin_acme_demo_post_export',);
+                }
+
+            }
+
         }
 
         // _welcome
